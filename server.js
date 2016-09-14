@@ -1,8 +1,8 @@
 //server.js
 var express = require('express');
 var routes = require('./app/index.js');
-var host = "127.0.0.1";
-var port = "8989";
+var host = precess.env.HOST || "0.0.0.0";
+var port = precess.env.PORT || "8989";
 
 var app = express();
 app.use(routes);
