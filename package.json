@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/SercanSulun/nodeTogether/issues"
   },
-  "homepage": "https://github.com/SercanSulun/nodeTogether#readme"
+  "homepage": "https://github.com/SercanSulun/nodeTogether#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
