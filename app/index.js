@@ -1,11 +1,21 @@
 //index.js
 var express = require("express");
 var app = express();
-var motivations = require("motivations");
+var motivations = require("./motivationalArray.js");
 var pickOne = require("pick-one");
 var exphbs = require("express-handlebars");
 var catImages = [1, 2, 3, 4, 5, 6];
 var callbackCount = 0;
+
+var getPickOne = function (iv_Array){
+	var rtn = pickOne(iv_Array);
+	if(!rtn) {
+		//console.log("innerOppps..!");
+		rtn = getPickOne(iv_Array);
+	}
+	return rtn;
+}
+
 app.use(express.static('./app/public'));
 
 app.engine('handlebars',exphbs({
@@ -23,10 +33,13 @@ app.get('/:motivationID', function(req, res){
 
 
 app.get('/', function(req, res){
-	callbackCount++;
-	var motivationString = callbackCount+ " : " + pickOne(motivations);
-	var image = pickOne(catImages);
-	res.render('motivation', { motivationString, image } );
+	//callbackCount++;
+	//console.log(callbackCount);
+	var motivation = getPickOne(motivations);
+	var motivationString =  motivation.quote;
+	var motivationPerson = motivation.name;
+	var image = getPickOne(catImages);
+	res.render('motivation', { motivationString, motivationPerson, image } );
 });
 
 module.exports = app;
