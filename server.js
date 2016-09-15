@@ -8,4 +8,5 @@ var app = express();
 app.use(routes);
 
 app.listen(port, host);
-console.log("Server started on 127.0.0.1:8989");
+var messageString = "Server started on "+host+":"+port;
+console.log(messageString);
