@@ -4,7 +4,7 @@ var app = express();
 var motivations = require("./motivationalArray.js");
 var pickOne = require("pick-one");
 var exphbs = require("express-handlebars");
-var catImages = [1, 2, 3, 4, 5, 6];
+var catImages = [1, 2, 3, 4, 5, 6, 7, 8];
 var callbackCount = 0;
 
 var getPickOne = function (iv_Array){
